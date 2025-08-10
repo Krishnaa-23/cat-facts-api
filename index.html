@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Facts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .fact {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐱 Cat Facts 🐱</h1>
+  <p>Click the button to get a random cat fact!</p>
+  <button onclick="getCatFact()">Get Fact</button>
+  <div class="fact" id="fact"></div>
+
+  <script>
+    async function getCatFact() {
+      const response = await fetch('https://catfact.ninja/fact');
+      const data = await response.json();
+      document.getElementById('fact').innerText = data.fact;
+    }
+  </script>
+</body>
+</html>
